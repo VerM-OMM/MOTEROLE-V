@@ -33,22 +33,18 @@ const Category = () => {
                         Mga Kategorya
                     </div>
                     <div className="text-shadow flex h-[70%] w-[80%] rounded-3xl border-8 border-bluesky bg-white p-8 mobile:p-4 ipad:h-[60%] ipad:p-6">
-                        <div className="inner-shadow flex h-full w-full items-center space-x-4 rounded-2xl bg-cheese p-4 mobile:overflow-x-auto mobile:rounded-xl ipad:overflow-x-auto justify-evenly">
+                        <div className="inner-shadow flex h-full w-full items-center justify-evenly space-x-4 rounded-2xl bg-cheese p-4 mobile:overflow-x-auto mobile:rounded-xl ipad:overflow-x-auto">
                             <Link
                                 to="/line"
-                                className="text-shadow w-72 h-[80%] flex-shrink-0 rounded-2xl border-8 border-bluesky bg-butter mobile:w-56 ipad:w-60"
-                            >
-                                1
-                            </Link>
+                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-bluesky bg-butter mobile:h-[90%] mobile:w-1/3 ipad:w-60"
+                            ></Link>
                             <Link
                                 to="/line"
-                                className="text-shadow w-72 h-[80%] flex-shrink-0 rounded-2xl border-8 border-grape bg-butter mobile:w-56 ipad:w-60"
-                            >
-                                2
-                            </Link>
+                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-grape bg-butter mobile:h-[90%] mobile:w-1/3 ipad:w-60"
+                            ></Link>
                             <Link
                                 to="/line"
-                                className="text-shadow w-72 h-[80%] flex-shrink-0 rounded-2xl border-8 border-lava bg-butter mobile:w-56 ipad:w-60"
+                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-lava bg-butter mobile:h-[90%] mobile:w-1/3 ipad:w-60"
                             >
                                 3
                             </Link>
