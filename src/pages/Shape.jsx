@@ -29,7 +29,7 @@ const Shape = () => {
                 </div>
                 {/* center */}
                 <div className="flex w-full flex-col items-center justify-center font-bubbles text-white mobile:space-y-3">
-                    <div className="text-shadow relative flex h-[70%] w-[80%] justify-center rounded-3xl border-8 border-grape bg-white p-8 mobile:h-[80%] mobile:h-[85%] mobile:border-4 mobile:p-4 ipad:h-[60%] ipad:p-6">
+                    <div className="text-shadow relative flex h-[70%] w-[80%] justify-center rounded-3xl border-8 border-grape bg-white p-8 mobile:h-[85%] mobile:border-4 mobile:p-4 ipad:h-[60%] ipad:p-6">
                         <span className="absolute -top-9 flex h-14 w-1/3 items-center justify-center rounded-2xl border-8 border-grape bg-white font-nunito text-4xl font-black text-black mobile:h-12 mobile:border-4 mobile:text-2xl ipad:text-3xl">
                             Hugis
                         </span>

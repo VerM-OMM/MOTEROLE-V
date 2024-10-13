@@ -7,7 +7,6 @@ import { LuArrowBigLeft } from 'react-icons/lu'
 import { PiGearSixBold } from 'react-icons/pi'
 import { IoBulbOutline } from 'react-icons/io5'
 
-
 const Line = () => {
     useEffect(() => {
         document.title = 'Line'
@@ -29,24 +28,51 @@ const Line = () => {
                     <FullScreen />
                 </div>
                 {/* center */}
-                <div className="flex w-full flex-col items-center justify-center font-bubbles text-white mobile:space-y-3">
-                    <div className="text-shadow relative flex h-[70%] w-[80%] justify-center rounded-3xl border-8 border-limblue bg-white p-8 mobile:h-[80%] mobile:h-[85%] mobile:border-4 mobile:p-4 ipad:h-[60%] ipad:p-6">
+                <div className="flex w-full flex-col items-center justify-center font-bubbles text-white ipad:overflow-hidden">
+                    <div className="text-shadow relative flex h-[70%] w-[80%] justify-center rounded-3xl border-8 border-limblue bg-white p-8 mobile:h-[85%] mobile:border-4 mobile:p-4 ipad:h-[60%] ipad:p-6">
                         <span className="absolute -top-9 flex h-14 w-1/3 items-center justify-center rounded-2xl border-8 border-limblue bg-white font-nunito text-4xl font-black text-black mobile:h-12 mobile:border-4 mobile:text-2xl ipad:text-3xl">
                             Linya
                         </span>
-                        <div className="inner-shadow flex h-full w-full items-center justify-evenly space-x-4 rounded-2xl border-[0.5px] border-softgray bg-cheese p-4 mobile:overflow-x-auto mobile:rounded-xl ipad:overflow-x-auto">
+                        <div className="inner-shadow flex h-full w-full items-center justify-evenly space-x-4 overflow-x-auto rounded-2xl border-[0.5px] border-softgray bg-cheese p-4 mobile:overflow-x-auto mobile:rounded-xl ipad:overflow-x-auto">
                             <Link
                                 to="/leveldifficulty"
-                             
-                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-limblue bg-butter mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
+                                className="text-shadow h-[80%] w-1/4 flex-shrink-0 rounded-2xl border-8 border-limblue bg-butter mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
                             ></Link>
                             <Link
                                 to="/leveldifficulty"
-                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-limblue bg-butter mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
+                                className="text-shadow h-[80%] w-1/4 flex-shrink-0 rounded-2xl border-8 border-limblue bg-butter mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
                             ></Link>
                             <Link
                                 to="/leveldifficulty"
-                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-limblue bg-butter mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
+                                className="text-shadow h-[80%] w-1/4 flex-shrink-0 rounded-2xl border-8 border-limblue bg-butter mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
+                            ></Link>
+                            <Link
+                                to="/leveldifficulty"
+                                className="text-shadow h-[80%] w-1/4 flex-shrink-0 rounded-2xl border-8 border-limblue bg-butter mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
+                            ></Link>
+                            <Link
+                                to="/leveldifficulty"
+                                className="text-shadow h-[80%] w-1/4 flex-shrink-0 rounded-2xl border-8 border-limblue bg-butter mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
+                            ></Link>
+                            <Link
+                                to="/leveldifficulty"
+                                className="text-shadow h-[80%] w-1/4 flex-shrink-0 rounded-2xl border-8 border-limblue bg-butter mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
+                            ></Link>
+                            <Link
+                                to="/leveldifficulty"
+                                className="text-shadow h-[80%] w-1/4 flex-shrink-0 rounded-2xl border-8 border-limblue bg-butter mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
+                            ></Link>
+                            <Link
+                                to="/leveldifficulty"
+                                className="text-shadow h-[80%] w-1/4 flex-shrink-0 rounded-2xl border-8 border-limblue bg-butter mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
+                            ></Link>
+                            <Link
+                                to="/leveldifficulty"
+                                className="text-shadow h-[80%] w-1/4 flex-shrink-0 rounded-2xl border-8 border-limblue bg-butter mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
+                            ></Link>
+                            <Link
+                                to="/leveldifficulty"
+                                className="text-shadow h-[80%] w-1/4 flex-shrink-0 rounded-2xl border-8 border-limblue bg-butter mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
                             ></Link>
                         </div>
                     </div>

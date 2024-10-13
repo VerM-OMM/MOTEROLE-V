@@ -36,21 +36,22 @@ const Category = () => {
                         Mga Kategorya
                     </div>
                     <div className="text-shadow flex h-[70%] w-[80%] rounded-3xl border-8 border-bluesky bg-white p-8 mobile:border-4 mobile:p-4 ipad:h-[60%] ipad:p-6">
-                        <div className="inner-shadow flex h-full w-full items-center justify-evenly space-x-4 rounded-2xl bg-cheese p-4 mobile:overflow-x-auto mobile:rounded-xl ipad:overflow-x-auto">
+                        <div className="inner-shadow text-blackmobile:rounded-xl flex h-full w-full items-center justify-evenly space-x-4 rounded-2xl bg-cheese p-4 font-nunito text-4xl font-black text-black mobile:overflow-x-auto mobile:text-2xl ipad:overflow-x-auto">
                             <Link
                                 to="/line"
-                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-bluesky bg-butter duration-100 active:scale-95 mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
+                                className="text-shadow flex h-[80%] w-72 flex-shrink-0 flex-col items-center justify-between rounded-2xl border-8 border-bluesky bg-butter p-2 duration-100 active:scale-95 mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
                             >
                                 <div
                                     style={{
                                         backgroundImage: `url(${line})`,
                                     }}
-                                    className="h-full w-full bg-cover bg-center "
+                                    className="h-full w-full bg-cover bg-center"
                                 ></div>
+                                <div>Linya</div>
                             </Link>
                             <Link
                                 to="/shape"
-                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-grape bg-butter duration-100 active:scale-95 mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
+                                className="text-shadow flex h-[80%] w-72 flex-shrink-0 flex-col items-center justify-between rounded-2xl border-8 border-grape bg-butter p-2 duration-100 active:scale-95 mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
                             >
                                 <div
                                     style={{
@@ -58,10 +59,11 @@ const Category = () => {
                                     }}
                                     className="h-full w-full bg-cover bg-center"
                                 ></div>
+                                <div>Hugis</div>
                             </Link>
                             <Link
                                 to="/alphabet"
-                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-lava bg-butter duration-100 active:scale-95 mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
+                                className="text-shadow flex h-[80%] w-72 flex-shrink-0 flex-col items-center justify-between rounded-2xl border-8 border-lava bg-butter p-2 duration-100 active:scale-95 mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
                             >
                                 <div
                                     style={{
@@ -69,6 +71,7 @@ const Category = () => {
                                     }}
                                     className="h-full w-full bg-cover bg-center"
                                 ></div>
+                                <div>Alpabeto</div>
                             </Link>
                         </div>
                     </div>
