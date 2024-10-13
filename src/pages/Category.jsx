@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom'
 import { LuArrowBigLeft } from 'react-icons/lu'
 import { PiGearSixBold } from 'react-icons/pi'
 import { IoBulbOutline } from 'react-icons/io5'
+import line from '../assets/categorybtn/line.png'
+import shape from '../assets/categorybtn/shape.png'
+import abc from '../assets/categorybtn/abc.png'
 
 const Category = () => {
     useEffect(() => {
@@ -32,20 +35,41 @@ const Category = () => {
                     <div className="text-shadow text-8xl mobile:text-5xl ipad:text-7xl">
                         Mga Kategorya
                     </div>
-                    <div className="text-shadow flex h-[70%] w-[80%] rounded-3xl border-8 border-bluesky bg-white p-8 mobile:p-4 ipad:h-[60%] ipad:p-6">
+                    <div className="text-shadow flex h-[70%] w-[80%] rounded-3xl border-8 border-bluesky bg-white p-8 mobile:border-4 mobile:p-4 ipad:h-[60%] ipad:p-6">
                         <div className="inner-shadow flex h-full w-full items-center justify-evenly space-x-4 rounded-2xl bg-cheese p-4 mobile:overflow-x-auto mobile:rounded-xl ipad:overflow-x-auto">
                             <Link
                                 to="/line"
-                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-bluesky bg-butter duration-100 active:scale-95 mobile:h-[90%] mobile:w-1/3 ipad:w-60"
-                            ></Link>
+                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-bluesky bg-butter duration-100 active:scale-95 mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
+                            >
+                                <div
+                                    style={{
+                                        backgroundImage: `url(${line})`,
+                                    }}
+                                    className="h-full w-full bg-cover bg-center "
+                                ></div>
+                            </Link>
                             <Link
                                 to="/shape"
-                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-grape bg-butter duration-100 active:scale-95 mobile:h-[90%] mobile:w-1/3 ipad:w-60"
-                            ></Link>
+                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-grape bg-butter duration-100 active:scale-95 mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
+                            >
+                                <div
+                                    style={{
+                                        backgroundImage: `url(${shape})`,
+                                    }}
+                                    className="h-full w-full bg-cover bg-center"
+                                ></div>
+                            </Link>
                             <Link
                                 to="/alphabet"
-                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-lava bg-butter duration-100 active:scale-95 mobile:h-[90%] mobile:w-1/3 ipad:w-60"
-                            ></Link>
+                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-lava bg-butter duration-100 active:scale-95 mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
+                            >
+                                <div
+                                    style={{
+                                        backgroundImage: `url(${abc})`,
+                                    }}
+                                    className="h-full w-full bg-cover bg-center"
+                                ></div>
+                            </Link>
                         </div>
                     </div>
                 </div>
