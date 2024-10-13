@@ -30,47 +30,47 @@ const Menu = () => {
                     <div className="flex space-x-4 text-4xl mobile:text-xl ipad:text-2xl">
                         <Link
                             to="/category"
-                            className="button-shadow flex flex-col items-center space-y-4 rounded-3xl bg-applegreen p-5 mobile:space-y-2 mobile:rounded-lg mobile:p-3 ipad:rounded-xl ipad:p-4"
+                            className="text-shadow flex flex-col items-center space-y-4 rounded-3xl bg-applegreen p-5 duration-100 active:scale-95 mobile:space-y-2 mobile:rounded-lg mobile:p-3 ipad:rounded-xl ipad:p-4"
                         >
                             <img
                                 src={Play}
                                 alt="play.png"
-                                className="size-52 rounded-lg bg-butter mobile:size-24 mobile:rounded-md ipad:size-36"
+                                className="size-52 rounded-lg bg-butter mobile:size-28 mobile:rounded-md ipad:size-36"
                             />
                             <span>Laro</span>
                         </Link>
                         <Link
                             to="/achievement"
-                            className="button-shadow flex flex-col items-center space-y-4 rounded-3xl bg-tangerine p-5 mobile:space-y-2 mobile:rounded-lg mobile:p-3 ipad:rounded-xl ipad:p-4"
+                            className="text-shadow flex flex-col items-center space-y-4 rounded-3xl bg-tangerine p-5 duration-100 active:scale-95 mobile:space-y-2 mobile:rounded-lg mobile:p-3 ipad:rounded-xl ipad:p-4"
                         >
                             <img
                                 src={Achievement}
                                 alt="achievement.png"
-                                className="size-52 rounded-lg bg-butter mobile:size-24 mobile:rounded-md ipad:size-36"
+                                className="size-52 rounded-lg bg-butter mobile:size-28 mobile:rounded-md ipad:size-36"
                             />
                             <span>Tagumpay</span>
                         </Link>
                         <Link
                             to="/profile"
-                            className="button-shadow flex flex-col items-center space-y-4 rounded-3xl bg-bluesky p-5 mobile:space-y-2 mobile:rounded-lg mobile:p-3 ipad:rounded-xl ipad:p-4"
+                            className="text-shadow flex flex-col items-center space-y-4 rounded-3xl bg-bluesky p-5 duration-100 active:scale-95 mobile:space-y-2 mobile:rounded-lg mobile:p-3 ipad:rounded-xl ipad:p-4"
                         >
                             <img
                                 src={Profile}
                                 alt="profile.png"
-                                className="size-52 rounded-lg bg-butter mobile:size-24 mobile:rounded-md ipad:size-36"
+                                className="size-52 rounded-lg bg-butter mobile:size-28 mobile:rounded-md ipad:size-36"
                             />
-                            <span>Laro</span>
+                            <span>Profile</span>
                         </Link>
                         <Link
                             to="/settings"
-                            className="button-shadow flex flex-col items-center space-y-4 rounded-3xl bg-grape p-5 mobile:space-y-2 mobile:rounded-lg mobile:p-3 ipad:rounded-xl ipad:p-4"
+                            className="text-shadow flex flex-col items-center space-y-4 rounded-3xl bg-grape p-5 duration-100 active:scale-95 mobile:space-y-2 mobile:rounded-lg mobile:p-3 ipad:rounded-xl ipad:p-4"
                         >
                             <img
                                 src={Settings}
                                 alt="settings.png"
-                                className="size-52 rounded-lg bg-butter mobile:size-24 mobile:rounded-md ipad:size-36"
+                                className="size-52 rounded-lg bg-butter mobile:size-28 mobile:rounded-md ipad:size-36"
                             />
-                            <span>Laro</span>
+                            <span>Settings</span>
                         </Link>
                     </div>
                 </div>

@@ -20,7 +20,7 @@ const Line = () => {
                     {/* Action button acting as a "Back" button */}
                     <Actionbtn
                         text=""
-                        to="/menu"
+                        to="/category"
                         bgColor="#F40000"
                         icon={LuArrowBigLeft}
                     />
@@ -29,24 +29,23 @@ const Line = () => {
                 </div>
                 {/* center */}
                 <div className="flex w-full flex-col items-center justify-center font-bubbles text-white mobile:space-y-3">
-                    <div className="text-shadow relative flex h-[70%] w-[80%] justify-center rounded-3xl border-8 border-bluesky bg-white p-8 mobile:h-[80%] mobile:p-4 ipad:h-[60%] ipad:p-6">
-                        <span className="absolute -top-9 flex h-14 w-1/3 items-center justify-center rounded-2xl border-[6px] border-bluesky bg-white font-nunito text-4xl font-black text-black mobile:h-12 mobile:text-2xl ipad:text-3xl">
+                    <div className="text-shadow relative flex h-[70%] w-[80%] justify-center rounded-3xl border-8 border-limblue bg-white p-8 mobile:h-[80%] mobile:p-4 ipad:h-[60%] ipad:p-6">
+                        <span className="absolute -top-9 flex h-14 w-1/3 items-center justify-center rounded-2xl border-8 border-limblue bg-white font-nunito text-4xl font-black text-black mobile:h-12 mobile:text-2xl ipad:text-3xl">
                             Linya
                         </span>
                         <div className="inner-shadow flex h-full w-full items-center justify-evenly space-x-4 rounded-2xl bg-cheese p-4 mobile:overflow-x-auto mobile:rounded-xl ipad:overflow-x-auto">
                             <Link
-                                to="/line"
-                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-bluesky bg-butter mobile:h-[90%] mobile:w-1/3 ipad:w-60"
+                                to="/leveldifficulty"
+                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-limblue bg-butter mobile:h-[90%] mobile:w-1/3 ipad:w-60"
                             ></Link>
                             <Link
-                                to="/line"
-                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-bluesky bg-butter mobile:h-[90%] mobile:w-1/3 ipad:w-60"
+                                to="/leveldifficulty"
+                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-limblue bg-butter mobile:h-[90%] mobile:w-1/3 ipad:w-60"
                             ></Link>
                             <Link
-                                to="/line"
-                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-bluesky bg-butter mobile:h-[90%] mobile:w-1/3 ipad:w-60"
+                                to="/leveldifficulty"
+                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-limblue bg-butter mobile:h-[90%] mobile:w-1/3 ipad:w-60"
                             >
-                                3
                             </Link>
                         </div>
                     </div>

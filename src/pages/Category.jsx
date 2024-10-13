@@ -36,18 +36,16 @@ const Category = () => {
                         <div className="inner-shadow flex h-full w-full items-center justify-evenly space-x-4 rounded-2xl bg-cheese p-4 mobile:overflow-x-auto mobile:rounded-xl ipad:overflow-x-auto">
                             <Link
                                 to="/line"
-                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-bluesky bg-butter mobile:h-[90%] mobile:w-1/3 ipad:w-60"
+                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-bluesky bg-butter duration-100 active:scale-95 mobile:h-[90%] mobile:w-1/3 ipad:w-60"
                             ></Link>
                             <Link
-                                to="/line"
-                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-grape bg-butter mobile:h-[90%] mobile:w-1/3 ipad:w-60"
+                                to="/shape"
+                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-grape bg-butter duration-100 active:scale-95 mobile:h-[90%] mobile:w-1/3 ipad:w-60"
                             ></Link>
                             <Link
-                                to="/line"
-                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-lava bg-butter mobile:h-[90%] mobile:w-1/3 ipad:w-60"
-                            >
-                                3
-                            </Link>
+                                to="/alphabet"
+                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-lava bg-butter duration-100 active:scale-95 mobile:h-[90%] mobile:w-1/3 ipad:w-60"
+                            ></Link>
                         </div>
                     </div>
                 </div>
