@@ -1,117 +1,188 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import Background from '../components/Background'
-import { Link } from 'react-router-dom'
-import { GrTrophy } from 'react-icons/gr'
-import { PiGearSix } from 'react-icons/pi'
-import { LuArrowBigLeft } from 'react-icons/lu'
 import FullScreen from '../components/FullScreen'
+import Actionbtn from '../components/Actionbtn'
+import { Link } from 'react-router-dom'
+import { LuArrowBigLeft } from 'react-icons/lu'
+import { PiGearSixBold } from 'react-icons/pi'
+import { IoBulbOutline } from 'react-icons/io5'
 
-// Image loader function for lines
-const useLineImages = (lineTypes) => {
-    const [images, setImages] = useState({})
+const alphabet = [
+    'A',
+    'B',
+    'C',
+    'D',
+    'E',
+    'F',
+    'G',
+    'H',
+    'I',
+    'J',
+    'K',
+    'L',
+    'M',
+    'N',
+    'Ñ',
+    'NG',
+    'O',
+    'P',
+    'Q',
+    'R',
+    'S',
+    'T',
+    'U',
+    'V',
+    'W',
+    'X',
+    'Y',
+    'Z',
+]
 
-    useEffect(() => {
-        const loadImages = async () => {
-            const imagePromises = lineTypes.map(async (lineType) => {
-                try {
-                    const image = await import(
-                        `../assets/linebg/${lineType}.png`
-                    )
-                    return { [lineType]: image.default }
-                } catch (err) {
-                    console.error(`Error loading image for ${lineType}:`, err)
-                    return { [lineType]: null }
-                }
-            })
-
-            const resolvedImages = await Promise.all(imagePromises)
-            const imageMap = resolvedImages.reduce((acc, imageObj) => {
-                return { ...acc, ...imageObj }
-            }, {})
-
-            setImages(imageMap)
-        }
-
-        loadImages()
-    }, [lineTypes])
-
-    return images
+const letterName = {
+    A: 'Aso',
+    B: 'Bola',
+    C: 'Carrot',
+    D: 'Daga',
+    E: 'Eroplano',
+    F: 'Filipino',
+    G: 'Gagamba',
+    H: 'Hari',
+    I: 'Isda',
+    J: 'Jollibee',
+    K: 'Karabaw',
+    L: 'Lapis',
+    M: 'Manok',
+    N: 'Niyog',
+    Ñ: 'Niño',
+    NG: 'Ngipin',
+    O: 'Okra',
+    P: 'Pusa',
+    Q: 'Quezo',
+    R: 'Radyo',
+    S: 'Saging',
+    T: 'Talong',
+    U: 'Unggoy',
+    V: 'Vinta',
+    W: 'Watawat',
+    X: 'X-ray',
+    Y: 'Yelo',
+    Z: 'Zebra',
 }
 
-const Line = () => {
+
+// Memoized Actionbtn to prevent unnecessary re-renders
+const MemoizedActionbtn = React.memo(({ text, to, bgColor, icon }) => (
+    <Actionbtn text={text} to={to} bgColor={bgColor} icon={icon} />
+))
+
+const Alphabet = () => {
     useEffect(() => {
-        document.title = 'Line'
-    }, [])
+        document.title = 'Alphabet'
+    })
 
-    const lineTypes = [
-        'Patayo',
-        'Pahilis',
-        'Pakurba',
-        'Pahiga',
-        'Pakurba',
-        'Pazigzag',
-    ]
-    const lineImages = useLineImages(lineTypes)
+    const useLetterImage = (letter) => {
+        const [imageSrc, setImageSrc] = useState(null)
 
+        useEffect(() => {
+            const loadImage = async () => {
+                try {
+                    const image = await import(
+                        `../assets/alphabetbtn/${letter}.png`
+                    )
+                    setImageSrc(image.default)
+                } catch (err) {
+                    console.error(`Error loading image for ${letter}:`, err)
+                    setImageSrc(null)
+                }
+            }
+
+            loadImage()
+        }, [letter])
+
+        return imageSrc
+    }
     return (
         <>
             <Background />
-            <div className="relative flex h-screen w-screen flex-col items-center justify-center space-y-4 xl:space-y-6">
-                <div className="relative flex h-[75%] w-[60%] flex-col items-center rounded-3xl border-[6px] border-[#005981] bg-white p-5 drop-shadow-[5px_5px_0px_#000000] xl:mt-4 xl:h-[60%] xl:px-6 xl:py-8 xl:drop-shadow-[15px_10px_5px_#000000]">
-                    <span className="absolute -top-9 flex w-1/3 items-center justify-center rounded-2xl border-[6px] border-[#005981] bg-white font-nunito text-2xl font-black drop-shadow-[5px_5px_0px_#000000] xl:h-14">
-                        Linya
-                    </span>
-                    {/* Overflow functionality with line images as background */}
-                    <div className="shadow-inner-lg flex h-full w-full items-center justify-evenly gap-4 overflow-x-auto rounded-xl bg-[#FFD568] px-4 py-6 font-nunito xl:gap-10 xl:p-10">
-                        {lineTypes.map((lineType, index) => (
-                            <Link
-                                key={index}
-                                to="/leveldifficulty"
-                                className="flex h-full w-full flex-col items-center justify-end rounded-2xl border-[6px] border-[#005981] bg-[#FFEDBE] p-2 drop-shadow-[5px_5px_0px_#000000] transition-all active:scale-90"
-                                style={{
-                                    backgroundImage: lineImages[lineType]
-                                        ? `url(${lineImages[lineType]})`
-                                        : 'none',
-                                    backgroundSize: 'cover',
-                                    backgroundPosition: 'center',
-                                }}
-                            >
-                                <div className="flex w-full flex-col items-center justify-center">
-                                    <div className="text-2xl font-[1000] text-black">
-                                        {lineType}
-                                    </div>
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-                <div className="absolute bottom-7 flex w-full justify-between px-5">
+            <div className="relative flex h-screen w-screen justify-between items-center p-5">
+                {/* left column */}
+                <div className="w-1/10 flex flex-col justify-between h-full">
+                    {/* Action button acting as a "Back" button */}
+                    <MemoizedActionbtn
+                        text=""
+                        to="/category"
+                        bgColor="#F40000"
+                        icon={LuArrowBigLeft}
+                    />
                     <FullScreen />
-                    <div className="flex space-x-2 xl:space-x-4">
-                        <Link
-                            to="/achievement"
-                            className="flex cursor-pointer items-center justify-center rounded-xl bg-[#FFD700] text-center text-white transition-all duration-150 [box-shadow:0_4px_0_0_#bfa100,0_6px_0_0_#1b70f841] active:translate-y-1 active:border-b-[0px] active:[box-shadow:0_0px_0_0_#1b6ff8,0_0px_0_0_#1b70f841]"
-                        >
-                            <GrTrophy className="size-10 p-2 xl:size-14 xl:p-2.5" />
-                        </Link>
+                </div>
 
-                        <Link
-                            to="/settings"
-                            className="flex cursor-pointer items-center justify-center rounded-xl bg-[#8D8686] text-center text-white transition-all duration-150 [box-shadow:0_4px_0_0_#5e5a5a,0_6px_0_0_#1b70f841] active:translate-y-1 active:border-b-[0px] active:[box-shadow:0_0px_0_0_#1b6ff8,0_0px_0_0_#1b70f841]"
-                        >
-                            <PiGearSix className="size-10 p-1 xl:size-14" />
-                        </Link>
+                <div className="relative flex h-[70%] w-[75%] flex-col items-center just  rounded-3xl border-8 border-lava bg-white p-8">
+                    <span className="absolute -top-9 flex w-1/3 items-center justify-center rounded-2xl border-8 border-lava bg-white font-nunito text-4xl font-black">
+                        Letra
+                    </span>
+                    <div className="inner-shadow flex h-full w-full items-center gap-6 overflow-x-auto overflow-y-hidden rounded-xl bg-cheese px-6 py-4 font-nunito">
+                        {alphabet.map((letter, index) => {
+                            const imageSrc = useLetterImage(letter)
+                            const isNG = letter === 'NG'
+                            const sound = letterName[letter]
+                            return (
+                                <Link
+                                    key={index}
+                                    to="/leveldifficulty"
+                                    className={`relative flex h-[75%] flex-col justify-between px-1 py-2 xl:py-2 ${
+                                        isNG
+                                            ? 'w-auto md:w-72 xl:w-56'
+                                            : 'w-48 md:w-72 xl:w-56'
+                                    } flex-shrink-0 flex-col rounded-2xl border-8 border-lava bg-[#FFEDBE] drop-shadow-[5px_5px_0px_#000000] transition-transform active:scale-95`}
+                                >
+                                    <div className="flex justify-start font-nunito text-4xl font-black lg:text-7xl xl:text-6xl">
+                                        {isNG
+                                            ? 'NG ng'
+                                            : `${letter}${letter.toLowerCase()}`}
+                                    </div>
+                                    <div className="flex h-20 w-full items-center justify-center">
+                                        {imageSrc ? (
+                                            <img
+                                                src={imageSrc}
+                                                alt={`${letter} letter`}
+                                                className={`${
+                                                    isNG
+                                                        ? 'h-24 w-56 lg:h-48 xl:h-28'
+                                                        : 'h-24 w-56 lg:h-48 xl:h-32'
+                                                } object-contain`}
+                                            />
+                                        ) : (
+                                            <span>Image not found</span>
+                                        )}
+                                    </div>
+                                    <div className="flex justify-end font-nunito text-xl font-black lg:text-6xl xl:text-4xl">
+                                        {sound || 'No sound available'}{' '}
+                                    </div>
+                                </Link>
+                            )
+                        })}
                     </div>
                 </div>
-                <Link
-                    to="/category"
-                    className="absolute left-5 top-0 flex cursor-pointer items-center justify-center rounded-xl bg-[#F40000] text-center text-white transition-all duration-150 [box-shadow:0_4px_0_0_#ab0000,0_6px_0_0_#1b70f841] active:translate-y-1 active:border-b-[0px] active:[box-shadow:0_0px_0_0_#1b6ff8,0_0px_0_0_#1b70f841]"
-                >
-                    <LuArrowBigLeft className="size-10 p-1 xl:size-14" />
-                </Link>
+
+                {/* right column */}
+                <div className="w-1/10 flex select-none flex-col space-y-4 mobile:space-y-3 h-full">
+                    <MemoizedActionbtn
+                        text=""
+                        to="/settings"
+                        bgColor="#AB47BC"
+                        icon={PiGearSixBold}
+                    />
+                    <MemoizedActionbtn
+                        text=""
+                        to="/achievement"
+                        bgColor="#8BC34A"
+                        icon={IoBulbOutline}
+                    />
+                </div>
             </div>
         </>
     )
 }
 
-export default Line
+export default Alphabet

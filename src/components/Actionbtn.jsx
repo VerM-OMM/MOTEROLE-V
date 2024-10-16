@@ -9,25 +9,35 @@ const Actionbtn = ({
     onClick,
     isLink = true, // If this should be a link
     to = '#', // Default link target
+    disabled = false, // New disabled prop
 }) => {
     const navigate = useNavigate()
 
     // Default function to navigate one step back
     const defaultOnClick = () => {
-        navigate(-1)
+        if (!disabled) {
+            navigate(-1)
+        }
     }
 
     // Use inline styles to set dynamic background color
     const buttonStyle = {
-        backgroundColor: bgColor,
+        backgroundColor: disabled ? '#d3d3d3' : bgColor, // Change to gray when disabled
+        cursor: disabled ? 'not-allowed' : 'pointer', // Change cursor when disabled
+        opacity: disabled ? 0.6 : 1, // Make button/link look faded when disabled
     }
 
-    const buttonClasses = `size-12 mobile:size-10 ipad:size-14 flex cursor-pointer items-center justify-center rounded-xl text-center text-white action-btn`
+    const buttonClasses = `size-12 mobile:size-10 ipad:size-14 flex items-center justify-center rounded-xl text-center text-white action-btn`
 
     return (
         <div>
             {isLink ? (
-                <Link to={to} className={buttonClasses} style={buttonStyle}>
+                <Link
+                    to={disabled ? '#' : to} // Prevent navigation if disabled
+                    className={buttonClasses}
+                    style={buttonStyle}
+                    onClick={(e) => disabled && e.preventDefault()} // Prevent action if disabled
+                >
                     {Icon && (
                         <Icon className="size-12 p-1 mobile:size-10 ipad:size-14" />
                     )}
@@ -35,9 +45,10 @@ const Actionbtn = ({
                 </Link>
             ) : (
                 <button
-                    onClick={onClick || defaultOnClick}
+                    onClick={disabled ? null : onClick || defaultOnClick} // Disable onClick if disabled
                     className={buttonClasses}
                     style={buttonStyle}
+                    disabled={disabled} // Disable button functionality
                 >
                     {Icon && (
                         <Icon className="size-12 p-1 mobile:size-10 ipad:size-14" />
@@ -56,6 +67,7 @@ Actionbtn.propTypes = {
     onClick: PropTypes.func,
     isLink: PropTypes.bool,
     to: PropTypes.string,
+    disabled: PropTypes.bool, // PropType for the new disabled prop
 }
 
 export default Actionbtn

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import Background from '../components/Background'
 import FullScreen from '../components/FullScreen'
 import Actionbtn from '../components/Actionbtn'
@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom'
 import { LuArrowBigLeft } from 'react-icons/lu'
 import { PiGearSixBold } from 'react-icons/pi'
 import { IoBulbOutline } from 'react-icons/io5'
-
-
 
 // Image loader function for line background and images
 const useLineImages = (lineTypes) => {
@@ -17,13 +15,10 @@ const useLineImages = (lineTypes) => {
         const loadImages = async () => {
             const imagePromises = lineTypes.map(async (lineType) => {
                 try {
-                    // Load linebg and lineimg for each line type
-                    const linebg = await import(
-                        `../assets/linebg/${lineType}.png`
-                    )
-                    const lineimg = await import(
-                        `../assets/lineimg/${lineType}.png`
-                    )
+                    const [linebg, lineimg] = await Promise.all([
+                        import(`../assets/linebg/${lineType}.png`),
+                        import(`../assets/lineimg/${lineType}.png`),
+                    ])
 
                     return {
                         [lineType]: {
@@ -38,18 +33,29 @@ const useLineImages = (lineTypes) => {
             })
 
             const resolvedImages = await Promise.all(imagePromises)
-            const imageMap = resolvedImages.reduce((acc, imageObj) => {
-                return { ...acc, ...imageObj }
-            }, {})
-
-            setImages(imageMap)
+            setImages(
+                resolvedImages.reduce(
+                    (acc, imageObj) => ({ ...acc, ...imageObj }),
+                    {},
+                ),
+            )
         }
 
-        loadImages()
+        // Debounce logic to delay image loading
+        const debounceTimeout = setTimeout(() => {
+            loadImages()
+        }, 100) // Adjust delay as necessary
+
+        return () => clearTimeout(debounceTimeout)
     }, [lineTypes])
 
     return images
 }
+
+// Memoized Actionbtn to prevent unnecessary re-renders
+const MemoizedActionbtn = React.memo(({ text, to, bgColor, icon }) => (
+    <Actionbtn text={text} to={to} bgColor={bgColor} icon={icon} />
+))
 
 const Line = () => {
     useEffect(() => {
@@ -68,13 +74,12 @@ const Line = () => {
                 {/* left column */}
                 <div className="w-1/10 flex flex-col justify-between">
                     {/* Action button acting as a "Back" button */}
-                    <Actionbtn
+                    <MemoizedActionbtn
                         text=""
                         to="/category"
                         bgColor="#F40000"
                         icon={LuArrowBigLeft}
                     />
-                    {/* No need to pass onClick if using the default navigate(-1) */}
                     <FullScreen />
                 </div>
                 {/* center */}
@@ -83,24 +88,22 @@ const Line = () => {
                         <span className="absolute -top-9 flex h-14 w-1/3 items-center justify-center rounded-2xl border-8 border-limblue bg-white font-nunito text-4xl font-black text-black mobile:h-12 mobile:border-4 mobile:text-2xl ipad:text-3xl">
                             Linya
                         </span>
-                        <div className="inner-shadow flex h-full w-full items-center justify-evenly space-x-4 rounded-2xl border-[0.5px] border-softgray bg-cheese p-4 mobile:overflow-x-auto mobile:rounded-xl ipad:overflow-x-auto overflow-auto">
+                        <div className="inner-shadow flex h-full w-full items-center justify-evenly space-x-4 overflow-auto rounded-2xl border-[0.5px] border-softgray bg-cheese p-4 font-nunito text-4xl font-black text-black mobile:overflow-x-auto mobile:rounded-xl mobile:text-xl ipad:overflow-x-auto ipad:text-3xl">
                             {lineTypes.map((lineType, index) => (
                                 <Link
                                     key={index}
                                     to="/leveldifficulty"
-                                    className="text-shadow h-[80%] w-1/4 duration-100 active:scale-95 flex-shrink-0 flex flex-col  justify-center items-center rounded-2xl border-8 border-limblue bg-butter mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-1/3 "
+                                    className="text-shadow flex h-[80%] w-1/4 flex-shrink-0 flex-col items-center justify-center rounded-2xl border-8 border-limblue bg-butter bg-cover bg-center duration-100 active:scale-95 mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-1/3"
                                     style={{
                                         backgroundImage: lineImages[lineType]
                                             ?.linebg
                                             ? `url(${lineImages[lineType].linebg})`
                                             : 'none',
-                                        backgroundSize: 'cover',
-                                        backgroundPosition: 'center',
                                     }}
                                 >
                                     {/* Line image div */}
                                     <div
-                                        className="size-[70%] mobile:size-[70%] bg-cover bg-center ipad:size-[80%]"
+                                        className="flex size-[90%] flex-col items-center justify-end bg-cover bg-center mobile:size-[90%] ipad:size-[90%]"
                                         style={{
                                             backgroundImage: lineImages[
                                                 lineType
@@ -108,10 +111,9 @@ const Line = () => {
                                                 ? `url(${lineImages[lineType].lineimg})`
                                                 : 'none',
                                         }}
-                                    />
-                                    {/* Line type text */}
-                                    <div className="font-nunito text-4xl mobile:text-xl font-black text-black ipad:text-3xl ">
-                                        {lineType}
+                                    >
+                                        {/* Line type text */}
+                                        <span>{lineType}</span>
                                     </div>
                                 </Link>
                             ))}
@@ -120,14 +122,13 @@ const Line = () => {
                 </div>
                 {/* right column */}
                 <div className="w-1/10 flex select-none flex-col space-y-4 mobile:space-y-3">
-                    {/* Action button acting as a "Back" button */}
-                    <Actionbtn
+                    <MemoizedActionbtn
                         text=""
                         to="/settings"
                         bgColor="#AB47BC"
                         icon={PiGearSixBold}
                     />
-                    <Actionbtn
+                    <MemoizedActionbtn
                         text=""
                         to="/achievement"
                         bgColor="#8BC34A"
