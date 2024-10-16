@@ -6,11 +6,15 @@ import { Link } from 'react-router-dom'
 import { LuArrowBigLeft } from 'react-icons/lu'
 import { PiGearSixBold } from 'react-icons/pi'
 import { IoBulbOutline } from 'react-icons/io5'
+import Madali from '../assets/levelbtn/Madali.png'
+import Karaniwan from '../assets/levelbtn/Karaniwan.png'
+import Mahirap from '../assets/levelbtn/Mahirap.png'
 
 const LevelDifficulty = () => {
     useEffect(() => {
         document.title = 'Line'
-    })
+    }, [])
+
     return (
         <>
             <Background />
@@ -24,7 +28,6 @@ const LevelDifficulty = () => {
                         icon={LuArrowBigLeft}
                         isLink={false}
                     />
-                    {/* No need to pass onClick if using the default navigate(-1) */}
                     <FullScreen />
                 </div>
                 {/* center */}
@@ -33,19 +36,46 @@ const LevelDifficulty = () => {
                         <span className="absolute -top-9 flex h-14 w-1/3 items-center justify-center rounded-2xl border-8 border-softgray bg-white font-nunito text-4xl font-black text-black mobile:h-12 mobile:border-4 mobile:text-2xl ipad:text-3xl">
                             Lebel
                         </span>
-                        <div className="inner-shadow flex h-full w-full items-center justify-evenly space-x-4 rounded-2xl border-[0.5px] border-softgray bg-cheese p-4 mobile:overflow-x-auto mobile:rounded-xl ipad:overflow-x-auto">
+                        <div className="inner-shadow flex h-full w-full items-center justify-evenly space-x-4 rounded-2xl border-[0.5px] border-softgray bg-cheese p-4 text-center font-nunito text-4xl mobile:text-3xl font-black text-black mobile:overflow-x-auto mobile:rounded-xl ipad:overflow-x-auto">
                             <Link
                                 to="/ingame"
-                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-softgray bg-butter mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
-                            ></Link>
+                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-softgray bg-butter p-4 mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
+                            >
+                                <div
+                                    style={{
+                                        backgroundImage: `url(${Madali})`,
+                                    }}
+                                    className="h-full w-full bg-cover bg-center"
+                                >
+                                    <span>Madali</span>
+                                </div>
+                            </Link>
                             <Link
                                 to="/ingame"
-                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-softgray bg-butter mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
-                            ></Link>
+                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-softgray bg-butter p-4 mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
+                            >
+                                <div
+                                    style={{
+                                        backgroundImage: `url(${Karaniwan})`,
+                                    }}
+                                    className="h-full w-full bg-cover bg-center"
+                                >
+                                    <span>Madali</span>
+                                </div>
+                            </Link>
                             <Link
                                 to="/ingame"
-                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-softgray bg-butter mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
-                            ></Link>
+                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-softgray bg-butter p-4 mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
+                            >
+                                <div
+                                    style={{
+                                        backgroundImage: `url(${Mahirap})`,
+                                    }}
+                                    className="h-full w-full bg-cover bg-center"
+                                >
+                                    <span>Madali</span>
+                                </div>
+                            </Link>
                         </div>
                     </div>
                 </div>
