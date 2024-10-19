@@ -33,12 +33,18 @@ const SignIn = () => {
                             action=""
                             className="flex h-full w-full flex-col items-center justify-evenly space-y-4 font-nunito text-3xl font-black text-black mobile:text-2xl"
                         >
-                            
                             <input
                                 type="email"
                                 name="signup-email"
                                 id="sigin-email"
                                 placeholder="Email"
+                                className="h-1/3 w-full rounded-2xl border-4 border-grape px-4 focus:outline-0 mobile:rounded-xl"
+                            />
+                            <input
+                                type="text"
+                                name="signup-username"
+                                id="sigin-username"
+                                placeholder="Username"
                                 className="h-1/3 w-full rounded-2xl border-4 border-grape px-4 focus:outline-0 mobile:rounded-xl"
                             />
                             <input
@@ -50,7 +56,7 @@ const SignIn = () => {
                             />
                         </form>
 
-                        <div className="absolute -bottom-8 flex h-14 w-[100%] justify-evenly space-x-4 text-4xl mobile:-bottom-7 mobile:h-10 mobile:text-xl ipad:-bottom-11 ipad:text-3xl">
+                        <div className="absolute -bottom-20 flex h-14 w-[100%] justify-evenly space-x-4 text-4xl mobile:-bottom-12 mobile:h-10 mobile:text-xl ipad:-bottom-20 ipad:text-3xl">
                             <Link
                                 to="/signin"
                                 className="text-shadow flex h-full w-1/3 items-center justify-center rounded-xl bg-bluesky duration-100 active:scale-95"

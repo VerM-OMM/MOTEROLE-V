@@ -39,7 +39,7 @@ const LevelDifficulty = () => {
                         <div className="inner-shadow flex h-full w-full items-center justify-evenly space-x-4 rounded-2xl border-[0.5px] border-softgray bg-cheese p-4 text-center font-nunito text-4xl mobile:text-3xl font-black text-black mobile:overflow-x-auto mobile:rounded-xl ipad:overflow-x-auto">
                             <Link
                                 to="/ingame"
-                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-softgray bg-butter p-4 mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
+                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-softgray bg-butter p-4 mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-1/3"
                             >
                                 <div
                                     style={{
@@ -52,7 +52,7 @@ const LevelDifficulty = () => {
                             </Link>
                             <Link
                                 to="/ingame"
-                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-softgray bg-butter p-4 mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
+                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-softgray bg-butter p-4 mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-1/3"
                             >
                                 <div
                                     style={{
@@ -65,7 +65,7 @@ const LevelDifficulty = () => {
                             </Link>
                             <Link
                                 to="/ingame"
-                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-softgray bg-butter p-4 mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-60"
+                                className="text-shadow h-[80%] w-72 flex-shrink-0 rounded-2xl border-8 border-softgray bg-butter p-4 mobile:h-[90%] mobile:w-1/3 mobile:border-4 ipad:w-1/3"
                             >
                                 <div
                                     style={{

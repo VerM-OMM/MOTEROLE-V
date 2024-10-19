@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 import FullScreen from '../components/FullScreen'
 import Actionbtn from '../components/Actionbtn'
 import { LuArrowBigLeft } from 'react-icons/lu'
+import Leader from "../assets/leader.png"
 
 const Menu = () => {
     useEffect(() => {
@@ -75,11 +76,15 @@ const Menu = () => {
                     </div>
                 </div>
                 {/* right column */}
-                <div className="w-1/10 flex select-none flex-col justify-between opacity-0">
+                <div className="w-1/10 flex select-none flex-col justify-between opacity-100">
                     {/* Action button acting as a "Back" button */}
-                    <Actionbtn text="" to="/menu" icon={LuArrowBigLeft} />{' '}
-                    {/* No need to pass onClick if using the default navigate(-1) */}
-                    <FullScreen />
+
+                    <Link
+                        to="/settings"
+                        className="size-12 mobile:size-10 ipad:size-14"
+                    >
+                        <img src={Leader} alt="leader.png" />
+                    </Link>
                 </div>
             </div>
         </>

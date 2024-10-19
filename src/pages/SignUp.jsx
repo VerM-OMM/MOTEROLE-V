@@ -28,11 +28,14 @@ const SignUp = () => {
                     <div className="text-shadow text-8xl mobile:text-5xl ipad:text-7xl">
                         MoTeRole
                     </div>
-                    <div className="relative flex h-[50%] w-[70%] flex-col items-center rounded-3xl border-8 border-grape bg-white bg-opacity-30 p-10 mobile:h-[60%] mobile:rounded-xl mobile:border-4 mobile:p-4 ipad:h-[40%] ipad:p-6">
+                    <div className="relative flex h-[50%] w-[70%] flex-col items-center rounded-3xl border-8 border-grape bg-white bg-opacity-30 px-10 py-5 mobile:h-[60%] mobile:rounded-xl mobile:border-4 mobile:p-4 ipad:h-[40%] ipad:text-xl ipad:px-6 ipad:py-4 text-3xl mobile:text-base mobile:px-4 mobile:py-1">
                         <form
                             action=""
-                            className="flex h-full w-full flex-col items-center justify-between space-y-4 font-nunito text-3xl font-black text-black mobile:text-2xl"
+                            className="flex h-full w-full flex-col items-center justify-between space-y-2 font-nunito font-black text-black  mobile:space-y-2"
                         >
+                            <span className="flex w-full justify-start text-gray-500 pl-4 text-base mobile:text-xs">
+                           STUDENT
+                            </span>
                             <div className="flex h-full w-full justify-center space-x-4">
                                 <input
                                     type="text"
@@ -49,6 +52,42 @@ const SignUp = () => {
                                     className="h-full w-full rounded-2xl border-4 border-grape px-4 focus:outline-0 mobile:rounded-xl"
                                 />
                             </div>
+
+                            <div className="flex h-full w-full space-x-4">
+                                <input
+                                    type="text"
+                                    name="signup-username"
+                                    id="sigin-username"
+                                    placeholder="Username"
+                                    className="h-full w-1/2 rounded-2xl border-4 border-grape px-4 focus:outline-0 mobile:rounded-xl"
+                                />
+                                <div className="flex w-1/2 justify-evenly">
+                                    <div className="flex items-center space-x-4">
+                                        <input
+                                            type="radio"
+                                            name="signup-gender"
+                                            id="female"
+                                            placeholder="Username"
+                                            className="h-8 w-8 mobile:w-4 mobile:h-4 border-4 border-grape px-4 focus:outline-0 mobile:rounded-xl"
+                                        />
+                                        <label for="female">Female</label>
+                                    </div>
+                                    <div className="flex items-center space-x-4">
+                                        <input
+                                            defaultChecked
+                                            type="radio"
+                                            name="signup-gender"
+                                            id="male"
+                                            placeholder="Username"
+                                            className="h-8 w-8 mobile:w-4 mobile:h-4 border-4 border-grape px-4 focus:outline-0 mobile:rounded-xl"
+                                        />
+                                        <label for="male">Male</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <span className="flex w-full justify-start text-gray-500 pl-4 text-base mobile:text-xs">
+                                TEACHER/GUARDIAN
+                            </span>
                             <input
                                 type="email"
                                 name="signup-email"
@@ -65,9 +104,19 @@ const SignUp = () => {
                             />
                         </form>
 
-                        <div className="absolute -bottom-8 flex justify-evenly w-[100%] h-14 text-4xl space-x-4 ipad:text-3xl ipad:-bottom-11 mobile:text-xl mobile:h-10 mobile:-bottom-7">
-                            <Link to="/signin" className='w-1/3 bg-bluesky flex items-center justify-center rounded-xl h-full text-shadow active:scale-95 duration-100'>Sign In</Link>
-                            <Link to="/signup" className='w-1/3 bg-bluesky flex items-center justify-center rounded-xl h-full text-shadow active:scale-95 duration-100'>Sign Up</Link>
+                        <div className="absolute -bottom-20 flex h-14 w-[100%] justify-evenly space-x-4 text-4xl mobile:-bottom-12 mobile:h-10 mobile:text-xl ipad:-bottom-20 ipad:text-3xl">
+                            <Link
+                                to="/signin"
+                                className="text-shadow flex h-full w-1/3 items-center justify-center rounded-xl bg-bluesky duration-100 active:scale-95"
+                            >
+                                Sign In
+                            </Link>
+                            <Link
+                                to="/signup"
+                                className="text-shadow flex h-full w-1/3 items-center justify-center rounded-xl bg-bluesky duration-100 active:scale-95"
+                            >
+                                Sign Up
+                            </Link>
                         </div>
                     </div>
                 </div>

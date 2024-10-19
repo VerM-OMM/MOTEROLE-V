@@ -38,8 +38,16 @@ const Actionbtn = ({
                     style={buttonStyle}
                     onClick={(e) => disabled && e.preventDefault()} // Prevent action if disabled
                 >
-                    {Icon && (
-                        <Icon className="size-12 p-1 mobile:size-10 ipad:size-14" />
+                    {typeof Icon === 'string' ? (
+                        <img
+                            src={Icon}
+                            alt="icon"
+                            className="size-12 p-1 mobile:size-10 ipad:size-14"
+                        />
+                    ) : (
+                        Icon && (
+                            <Icon className="size-12 p-1 mobile:size-10 ipad:size-14" />
+                        )
                     )}
                     {text}
                 </Link>
@@ -50,8 +58,16 @@ const Actionbtn = ({
                     style={buttonStyle}
                     disabled={disabled} // Disable button functionality
                 >
-                    {Icon && (
-                        <Icon className="size-12 p-1 mobile:size-10 ipad:size-14" />
+                    {typeof Icon === 'string' ? (
+                        <img
+                            src={Icon}
+                            alt="icon"
+                            className="size-12 p-1 mobile:size-10 ipad:size-14"
+                        />
+                    ) : (
+                        Icon && (
+                            <Icon className="size-12 p-1 mobile:size-10 ipad:size-14" />
+                        )
                     )}
                     {text}
                 </button>
@@ -61,7 +77,8 @@ const Actionbtn = ({
 }
 
 Actionbtn.propTypes = {
-    icon: PropTypes.elementType.isRequired,
+    icon: PropTypes.oneOfType([PropTypes.elementType, PropTypes.string])
+        .isRequired,
     bgColor: PropTypes.string,
     text: PropTypes.string,
     onClick: PropTypes.func,
